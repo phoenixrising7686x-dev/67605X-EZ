@@ -371,7 +371,7 @@ void skills(){
   pros::Task lift_sequence_task_3([]() {
     lift.move_absolute(800, 80);
   });
-  chassis.pid_turn_set(65, 90);
+  chassis.pid_turn_set(64, 90);
   pros::delay(700);
   chassis.pid_drive_set(7, 110);
   pros::delay(400);
@@ -415,7 +415,7 @@ void skills(){
   pros::delay(900);
   clawPiston.set(false);
   pros::delay(400);
-  chassis.pid_drive_set(-11, 90);
+  chassis.pid_drive_set(-10.5, 90);
   pros::delay(600);
   chassis.pid_turn_set(180, 90);
   pros::delay(500);
@@ -436,8 +436,8 @@ void skills(){
   pros::delay(700);
   chassis.pid_turn_set(90, 90);
   pros::delay(600);
-  chassis.pid_drive_set(14, 90);
-  pros::delay(900);
+  chassis.pid_drive_set(13.5, 90);
+  pros::delay(700);
   clawPiston.set(false);
   pros::delay(400);
 //pin 2
@@ -462,10 +462,10 @@ void skills(){
   pros::delay(700);
   chassis.pid_turn_set(90, 90);
   pros::delay(600);
-  chassis.pid_drive_set(14, 90);
-  pros::delay(900);
+  chassis.pid_drive_set(13.5, 90);
+  pros::delay(700);
   clawPiston.set(false);
-  pros::delay(400);
+  pros::delay(500);
 //pin 3
   chassis.pid_drive_set(-12, 90);
   pros::delay(800);
@@ -491,8 +491,8 @@ void skills(){
   pros::delay(700);
   chassis.pid_turn_set(90, 90);
   pros::delay(650);
-  chassis.pid_drive_set(14, 90);
-  pros::delay(900);
+  chassis.pid_drive_set(13.5, 90);
+  pros::delay(700);
   clawPiston.set(false);
   pros::delay(400);
   chassis.pid_drive_set(-9, 90);
@@ -516,8 +516,8 @@ void skills(){
   pros::delay(900);
   chassis.pid_turn_set(90, 90);
   pros::delay(700);
-  chassis.pid_drive_set(14, 90);
-  pros::delay(900);
+  chassis.pid_drive_set(13.5, 90);
+  pros::delay(700);
   clawPiston.set(false);
   pros::delay(400);
   chassis.pid_drive_set(-9, 90);
@@ -542,7 +542,7 @@ void skills(){
   chassis.pid_turn_set(90, 90);
   pros::delay(700);
   chassis.pid_drive_set(13, 90);
-  pros::delay(900);
+  pros::delay(700);
   clawPiston.set(false);
   pros::delay(400);
   chassis.pid_drive_set(-9, 90);
@@ -566,13 +566,13 @@ void skills(){
   });
   chassis.pid_turn_set(270, 90);
   pros::delay(700);
-  chassis.pid_drive_set(43, 127);
-  pros::delay(2000);
+  chassis.pid_drive_set(41, 127);
+  pros::delay(1500);
   chassis.pid_turn_set(180, 90);
   pros::delay(700);
   chassis.pid_drive_set(-8, 90);
   pros::delay(700);
-  roller.move_relative(1800, 200);
+  roller.move_relative(3600, 200);
   pros::delay(1100);
   chassis.pid_drive_set(50, 120);
   pros::delay(5000);
