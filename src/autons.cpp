@@ -415,7 +415,7 @@ void skills(){
   pros::delay(900);
   clawPiston.set(false);
   pros::delay(400);
-  chassis.pid_drive_set(-12, 90);
+  chassis.pid_drive_set(-11, 90);
   pros::delay(600);
   chassis.pid_turn_set(180, 90);
   pros::delay(500);
@@ -435,7 +435,7 @@ void skills(){
   });
   pros::delay(700);
   chassis.pid_turn_set(90, 90);
-  pros::delay(400);
+  pros::delay(600);
   chassis.pid_drive_set(14, 90);
   pros::delay(900);
   clawPiston.set(false);
@@ -461,7 +461,7 @@ void skills(){
   });
   pros::delay(700);
   chassis.pid_turn_set(90, 90);
-  pros::delay(500);
+  pros::delay(600);
   chassis.pid_drive_set(14, 90);
   pros::delay(900);
   clawPiston.set(false);
@@ -476,13 +476,13 @@ void skills(){
   pros::delay(600);
   chassis.pid_drive_set(30, 70);
   pros::delay(1900);
-  chassis.pid_drive_set(-1.5, 90);
+  chassis.pid_drive_set(-2.5, 90);
   pros::delay(600);
   lift.move_absolute(1500, 90);
   pros::delay(400);
   clawPiston.set(true);
   pros::delay(400);
-  chassis.pid_drive_set(-31.5, 80);
+  chassis.pid_drive_set(-30, 80);
   pros::delay(400);
 //Other Alliance stake
   pros::Task lift_sequence_task_12([]() {
@@ -490,14 +490,14 @@ void skills(){
   });
   pros::delay(700);
   chassis.pid_turn_set(90, 90);
-  pros::delay(500);
+  pros::delay(650);
   chassis.pid_drive_set(14, 90);
   pros::delay(900);
   clawPiston.set(false);
   pros::delay(400);
   chassis.pid_drive_set(-9, 90);
   pros::delay(700);
-  chassis.pid_turn_set(250, 90);
+  chassis.pid_turn_set(252, 90);
   pros::Task lift_sequence_task_13([]() {
     lift.move_absolute(500, 90);
   });
@@ -511,18 +511,18 @@ void skills(){
   chassis.pid_drive_set(-5, 90);
   pros::delay(700);
   chassis.pid_turn_set(230, 90);
-  pros::delay(700);
+  pros::delay(300);
   chassis.pid_drive_set(-15, 90);
   pros::delay(900);
   chassis.pid_turn_set(90, 90);
   pros::delay(700);
-  chassis.pid_drive_set(13, 90);
+  chassis.pid_drive_set(14, 90);
   pros::delay(900);
   clawPiston.set(false);
   pros::delay(400);
   chassis.pid_drive_set(-9, 90);
   pros::delay(700);
-  chassis.pid_turn_set(250, 90);
+  chassis.pid_turn_set(252, 90);
   pros::Task lift_sequence_task_14([]() {
     lift.move_absolute(800, 90);
   });
@@ -536,7 +536,7 @@ void skills(){
   chassis.pid_drive_set(-5, 90);
   pros::delay(700);
   chassis.pid_turn_set(230, 90);
-  pros::delay(700);
+  pros::delay(300);
   chassis.pid_drive_set(-15, 90);
   pros::delay(900);
   chassis.pid_turn_set(90, 90);
@@ -547,7 +547,7 @@ void skills(){
   pros::delay(400);
   chassis.pid_drive_set(-9, 90);
   pros::delay(700);
-  chassis.pid_turn_set(255, 90);
+  chassis.pid_turn_set(252, 90);
   pros::Task lift_sequence_task_15([]() {
     lift.move_absolute(1100, 90);
   });
@@ -558,6 +558,24 @@ void skills(){
   pros::delay(700);
   clawPiston.set(true);
   pros::delay(700);
+  //Final Roller + Park
+  chassis.pid_drive_set(-18, 90);
+  pros::delay(700);
+  pros::Task lift_sequence_task_16([]() {
+    lift.move_absolute(0, 90);
+  });
+  chassis.pid_turn_set(270, 90);
+  pros::delay(700);
+  chassis.pid_drive_set(43, 127);
+  pros::delay(2000);
+  chassis.pid_turn_set(180, 90);
+  pros::delay(700);
+  chassis.pid_drive_set(-8, 90);
+  pros::delay(700);
+  roller.move_relative(1800, 200);
+  pros::delay(1100);
+  chassis.pid_drive_set(50, 120);
+  pros::delay(5000);
 }
 
 void height(){
