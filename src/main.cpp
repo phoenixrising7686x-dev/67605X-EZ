@@ -37,14 +37,6 @@ ez::Drive chassis(
     3.25,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
     450);   // Wheel RPM = cartridge * (motor gear / wheel gear)
 
-// Uncomment the trackers you're using here!
-// - `8` and `9` are smart ports (making these negative will reverse the sensor)
-//  - you should get positive values on the encoders going FORWARD and RIGHT
-// - `2.75` is the wheel diameter
-// - `4.0` is the distance from the center of the wheel to the center of the robot
-// ez::tracking_wheel horiz_tracker(8, 2.75, 4.0);  // This tracking wheel is perpendicular to the drive wheels
-// ez::tracking_wheel vert_tracker(9, 2.75, 4.0);   // This tracking wheel is parallel to the drive wheels
-
 /**
  * Runs initialization code. This occurs as soon as the program is started.
  *
@@ -55,7 +47,6 @@ void initialize() {
   // Print our branding over your terminal :D
   ez::ez_template_print();
   clawPiston.set(false);
-  //cflip.set(false);
 
   pros::delay(500);  // Stop the user from doing anything while legacy ports configure
 
@@ -82,21 +73,12 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-    //{"Far Alliance" , far},
-    //{"Close Alliance" , close},
-    //{"Toggle Only", toggle},
-    //{"Height Testing" , height},
+    {"Close Alliance" , close},
+    {"Far Alliance" , far},
+    {"Toggle Only", toggle},
     {"Skills" , skills},
-    //{"Far Allaince State" , falliance}, 
     //{"PID" , pid},
-    //{"Left Split" , lsplit},
-    //{"Left Middle Hold Split", slowLsplit},
-    //{"Right Split" , rsplit},
-    //{"Right SAWP" , rsawp},
-    //{"Right 7 Ball" , r7ball},
-    //{"Left 4 Wing" , l4wing},
-    //{"Right 4 Wing" , r4wing},
-    //{"Skills" , skills},
+    //{"Height Testing" , height},
   });
 
   // Initialize chassis and auton selector
@@ -144,20 +126,7 @@ void autonomous() {
   chassis.drive_sensor_reset();               // Reset drive sensors to 0
   chassis.odom_xyt_set(0_in, 0_in, 0_deg);    // Set the current position, you can start at a specific position with this
   chassis.drive_brake_set(MOTOR_BRAKE_HOLD);  // Set motors to hold.  This helps autonomous consistency
-  //cflip.set(true);
-  /*
-  Odometry and Pure Pursuit are not magic
-
-  It is possible to get perfectly consistent results without tracking wheels,
-  but it is also possible to have extremely inconsistent results without tracking wheels.
-  When you don't use tracking wheels, you need to:
-   - avoid wheel slip
-   - avoid wheelies
-   - avoid throwing momentum around (super harsh turns, like in the example below)
-  You can do cool curved motions, but you have to give your robot the best chance
-  to be consistent
-  */
-
+ 
   ez::as::auton_selector.selected_auton_call();  // Calls selected auton from autonomous selector
 }
 
@@ -216,6 +185,7 @@ pros::Task ezScreenTask(ez_screen_task);
 void opcontrol() {
   //Below is the thing for skills macro
   //ez::as::auton_selector.selected_auton_call();  // Calls selected auton from autonomous selector
+  
   // This is preference to what you like to drive on
   chassis.drive_brake_set(MOTOR_BRAKE_COAST);
   lift.set_brake_mode_all(pros::MotorBrake::hold);
