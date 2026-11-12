@@ -73,11 +73,12 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-    {"Close Alliance" , close},
-    {"Far Alliance" , far},
-    {"Toggle Only", toggle},
-    {"Skills" , skills},
-    //{"PID" , pid},
+    //{"Close Alliance" , close},
+    //{"Far Alliance" , far},
+    //{"Toggle Only", toggle},
+    //{"Skills" , skills},
+    //{"RECF Right" , rrecf},
+    {"RECF Left" , lrecf},
     //{"Height Testing" , height},
   });
 

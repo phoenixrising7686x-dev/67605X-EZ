@@ -529,7 +529,7 @@ void height(){
   chassis.pid_drive_set(-5, 90);
 }
 
-void pid() {
+/*void pid() {
   chassis.odom_xyt_set(0_in, 0_in, 0_deg);
   chassis.pid_drive_set(10, 110);
   pros :: delay(1000);
@@ -547,4 +547,148 @@ void pid() {
   pros :: delay(1000);
   chassis.pid_turn_set(0, 90);
   pros :: delay(1000);
+}*/
+
+//RECF autos
+
+void rrecf() {
+  chassis.odom_xyt_set(0_in, 0_in, 0_deg);
+  chassis.pid_drive_set(54, 110, false, true);
+  pros::Task lift_sequence_task_1([]() {
+    lift.move_absolute(800, 100);
+  });
+  pros::delay(1000);
+  chassis.pid_drive_set(13, 80);
+   pros::delay(700);
+  lift.move_absolute(200, 100);
+  pros::delay(500);
+  clawPiston.set(true);
+  pros::delay(200);
+  chassis.pid_drive_set(-5, 110);
+  pros::delay(300);
+  pros::Task lift_sequence_task_2([]() {
+    lift.move_absolute(0, 100);
+  });
+  chassis.pid_turn_set(167, 90);
+  pros::delay(700);
+  chassis.pid_drive_set(43, 110, false, true);
+  pros::delay(1000);
+  clawPiston.set(false);
+  pros::delay(200);
+  chassis.pid_drive_set(-35, 110, false, true);
+  pros::delay(100);
+  pros::Task lift_sequence_task_3([]() {
+    lift.move_absolute(300, 100);
+  });
+  pros::delay(1100);
+  chassis.pid_turn_set(0, 90);
+  pros::Task lift_sequence_task_4([]() {
+    lift.move_absolute(1000, 100);
+  });
+  pros::delay(800);
+  chassis.pid_drive_set(25, 100);
+  pros::delay(1000);
+  lift.move_absolute(300, 80);
+  pros::delay(600);
+  clawPiston.set(true);
+  pros::delay(200);
+  chassis.pid_drive_set(-5, 110);
+  pros::delay(300);
+  pros::Task lift_sequence_task_5([]() {
+    lift.move_absolute(0, 100);
+  });
+  chassis.pid_turn_set(169.5, 90);
+  pros::delay(700);
+  chassis.pid_drive_set(43, 110, false, true);
+  pros::delay(1000);
+  clawPiston.set(false);
+  pros::delay(200);
+  chassis.pid_drive_set(-33, 110, false, true);
+  pros::delay(100);
+  pros::Task lift_sequence_task_6([]() {
+    lift.move_absolute(300, 100);
+  });
+  pros::delay(1100);
+  chassis.pid_turn_set(0, 90);
+  pros::Task lift_sequence_task_7([]() {
+    lift.move_absolute(1000, 100);
+  });
+  pros::delay(800);
+  chassis.pid_drive_set(25, 100);
+  pros::delay(1000);
+  lift.move_absolute(300, 80);
+  pros::delay(600);
+  clawPiston.set(true);
+
+}
+
+void lrecf() {
+chassis.odom_xyt_set(0_in, 0_in, 0_deg);
+  chassis.pid_drive_set(54, 110, false, true);
+  pros::Task lift_sequence_task_1([]() {
+    lift.move_absolute(800, 100);
+  });
+  pros::delay(1000);
+  chassis.pid_drive_set(13, 80);
+   pros::delay(700);
+  lift.move_absolute(200, 100);
+  pros::delay(500);
+  clawPiston.set(true);
+  pros::delay(200);
+  chassis.pid_drive_set(-5, 110);
+  pros::delay(300);
+  pros::Task lift_sequence_task_2([]() {
+    lift.move_absolute(0, 100);
+  });
+  chassis.pid_turn_set(-167, 90);
+  pros::delay(700);
+  chassis.pid_drive_set(43, 110, false, true);
+  pros::delay(1000);
+  clawPiston.set(false);
+  pros::delay(200);
+  chassis.pid_drive_set(-43, 110, false, true);
+  pros::delay(100);
+  pros::Task lift_sequence_task_3([]() {
+    lift.move_absolute(300, 100);
+  });
+  pros::delay(1100);
+  chassis.pid_turn_set(2, 90);
+  pros::Task lift_sequence_task_4([]() {
+    lift.move_absolute(1000, 100);
+  });
+  pros::delay(800);
+  chassis.pid_drive_set(25, 100);
+  pros::delay(1000);
+  lift.move_absolute(300, 80);
+  pros::delay(600);
+  clawPiston.set(true);
+  pros::delay(200);
+  chassis.pid_drive_set(-5, 110);
+  pros::delay(300);
+  pros::Task lift_sequence_task_5([]() {
+    lift.move_absolute(0, 100);
+  });
+  chassis.pid_turn_set(-171, 90);
+  pros::delay(700);
+  chassis.pid_drive_set(43, 110, false, true);
+  pros::delay(1000);
+  clawPiston.set(false);
+  pros::delay(200);
+  chassis.pid_drive_set(-33, 110, false, true);
+  pros::delay(100);
+  pros::Task lift_sequence_task_6([]() {
+    lift.move_absolute(300, 100);
+  });
+  pros::delay(1100);
+  chassis.pid_turn_set(12, 90);
+  pros::Task lift_sequence_task_7([]() {
+    lift.move_absolute(1100, 100);
+  });
+  pros::delay(800);
+  chassis.pid_drive_set(25, 70);
+  pros::delay(1000);
+  lift.move_absolute(300, 80);
+  pros::delay(600);
+  clawPiston.set(true);
+
 }

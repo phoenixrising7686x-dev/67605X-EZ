@@ -3,8 +3,9 @@
 void close();
 void far();
 void toggle();
-void skills ();
-
+void skills();
+void rrecf();
+void lrecf();
 
 //examples
     void height();
